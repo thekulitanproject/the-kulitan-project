@@ -1,0 +1,402 @@
+/* Main page styling */
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Noto Sans', Arial, sans-serif;
+    background: #f7f3ef;
+    color: #2b2b2b;
+    transition: background 0.3s, color 0.3s;
+}
+
+
+/* Header layout and colors */
+header {
+    display: flex;                                /* horizontal layout */
+    align-items: center;                          /* vertically align items */
+    justify-content: space-between;               /* title left, toggle right */
+    padding: 1rem 2rem;                           /* spacing around header */
+    background: #2b2b2b;                          /* dark background */
+    color: white;                                 /* white text */
+    position: relative;                           /* needed for absolute nav */
+}
+
+
+header nav {
+    position: absolute;                           /* detach nav from normal flow */
+    left: 50%;                                    /* center horizontally */
+    transform: translateX(-50%);                  /* perfect center alignment */
+    display: flex;                                /* place nav links in a row */
+    gap: 2rem;                                    /* space between links */
+}
+
+main {
+    flex: 1;                                      /* fill remaining height */
+}
+
+
+/* Main title text */
+.home-title {
+    font-weight: 700;                             /* bold title */
+    z-index: 1;                                   /* sit above nav if overlapped */
+}
+
+
+
+/* Subtitle text */
+.home-sub { 
+    font-size:0.9rem;                             /* smaller subtitle */
+}
+
+/* Navigation links */
+nav a {
+    color: white;                               /* white link text */
+    text-decoration: none;                        /* remove underline */
+    font-weight: 500;                             /* medium weight */
+}
+
+
+/* Hero section with background image and overlay */
+.hero {
+  text-align: center;
+  color: white;
+  background:
+    linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+    url('../SVG/508280499_9383712238395196_8095674442001729245_n.jpg') center/cover no-repeat;
+}
+
+
+.enkp {
+    z-index: 1;                                   /* keep above background */
+}
+
+/* Language toggle button */
+.enkp button { 
+    border:none;
+    padding:0.6rem 1rem;
+    border-radius:1.8rem;
+    cursor:pointer;
+    font-size:1rem;
+    background:#f2f2f2;
+    color:#333;
+    display:flex;
+    gap:0.4rem;
+    align-items:center;
+    justify-content:center;
+    font-weight:600;
+}
+
+/* Active language */
+.enkp button span.active {
+    color:#000;
+}
+
+/* Inactive language */
+.enkp button span.inactive {
+    color:#e64403;
+}
+
+
+/* Hero title */
+.hero h1 { 
+    font-size:2.8rem;                             /* large heading */
+}
+
+/* Hero subtitle */
+.hero p { 
+    font-size:1.2rem;                             /* medium text */
+    margin-top:1rem;                              /* spacing from title */
+}
+
+/* Section base spacing */
+section { 
+    padding:4rem 2rem;                            /* large vertical spacing */
+    text-align:center;                            /* center contents */
+}
+
+/* Layout for steps and cards */
+.steps, .cards { 
+    display:flex;                                 /* side-by-side layout */
+    justify-content:center;                       /* center in container */
+    gap:2rem;                                     /* spacing between items */
+    flex-wrap:wrap;                               /* allow wrapping on small screens */
+    margin-top:2rem;                              /* spacing above */
+}
+
+/* Card and step boxes */
+.step, .card { 
+    background:white;                             /* white box background */
+    padding:1.5rem;                                /* inner spacing */
+    border-radius:1rem;                            /* rounded edges */
+    width:280px;                                   /* fixed width */
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);         /* soft shadow */
+    
+}
+
+body.night .card, body.night .step {
+  background: #1e1e1e;                            /* dark background */
+  color: #e0e0e0;                                 /* light text */
+
+}
+
+@media (max-width: 600px) {
+    header nav {
+        position: static;
+        transform: none;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+        margin-top: 0.5rem;
+    }
+
+    .home-title {
+        margin-bottom: 0.5rem;
+    }
+
+    .card.dict-item .card-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .card.dict-item .word-text {
+        order: 1;
+    }
+
+    .card.dict-item .word-kulitan {
+        order: 2;
+        margin-top: 0.5rem;
+    }
+}
+
+
+/* Footer styling */
+footer { 
+    background:#2b2b2b;                           /* dark footer */
+    color:white;                                  /* white footer text */
+    text-align:center;                            /* center text */
+    padding:2rem 1rem;                            /* spacious padding */
+}
+
+
+
+/* Container for the floating night mode button */
+.controls {
+    position: fixed;                              /* float on screen */
+    bottom: 20px;                                 /* distance from bottom */
+    right: 20px;                                  /* distance from right */
+}
+
+/* Night mode button styling */
+.night-btn { 
+    padding: 10px 18px;                           /* button size */
+    border-radius: 6px;                           /* rounded */
+    background: #333;                             /* dark color */
+    color: white;                                 /* white text */
+    border: none;                                 /* no border */
+    cursor: pointer;                              /* clickable */
+    transition: 0.3s;                              /* hover effect */
+}
+
+/* Appearance when night mode is active */
+.night-btn.active {
+    background: white;                            /* inverted colors */
+    color: black;
+}
+
+/* When night mode is enabled on the body */
+body.night {
+    background: #121212;                          /* dark theme background */
+    color: #e0e0e0;                               /* light text */
+}
+
+/* Subscribe button style */
+#subscribeBtn { 
+    padding: 10px 18px;                           /* button padding */
+    border-radius: 6px;                           /* rounded button */
+    background: #333;                             /* dark background */
+    color: white;                                 /* white text */
+    border: none;                                 /* remove border */
+    cursor: pointer;                              /* clickable */
+    transition: 0.3s;                              /* smooth effect */
+}
+
+.kulitan-vector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    filter: drop-shadow(3px 3px 4px rgba(0,0,0,0.25));
+}
+
+
+#searchInput {
+    width: 80%;                                   /* flexible width */
+    max-width: 400px;                             /* max size */
+    padding: 0.5rem 1rem;                          /* inner spacing */
+    margin: 2rem auto 1rem;                        /* centered with margin */
+    display: block;                                /* block element */
+    border-radius: 6px;                            /* rounded field */
+    border: 1px solid #ccc;                        /* light border */
+}
+
+.cards {
+    justify-content: center;                      /* center card group */
+}
+
+/* Ensure card texts don’t change color on click or focus */
+.card, 
+.card * {
+    color: inherit;                                /* match parent color */
+    text-decoration: none;                         /* no underlines */
+}
+
+.card:link,
+.card:visited,
+.card:hover,
+.card:active,
+.card:focus {
+    color: inherit;                                /* prevent color override */
+    text-decoration: none; 
+}
+
+.card {
+    display: block;                                /* whole card is clickable */
+    text-decoration: none;                         /* remove link styling */
+    color: inherit;                                /* match theme */
+    transition: transform 0.2s, box-shadow 0.2s;   /* hover animation */
+}
+
+.word-page .card-content {
+    flex-direction: column;                        /* vertical layout */
+    align-items: center;                           /* center content */
+    justify-content: flex-start;                   /* start at top */
+    text-align: center;                            /* center text */
+}
+
+.word-kulitan {
+    margin-bottom: 1rem;                           /* spacing below script */
+}
+
+.word-text {
+    flex: unset;                                   /* remove flex behavior */
+}
+
+/* Word cards horizontal layout: text left, Kulitan right */
+.card.dict-item .card-content {
+    display: flex;           /* horizontal layout */
+    flex-direction: row;     /* side by side */
+    align-items: center;     /* vertically center content */
+    gap: 1rem;               /* space between text and Kulitan */
+    text-align: left;        /* left-align text */
+}
+
+.card.dict-item .word-text {
+    flex: 1;                 /* take remaining space */
+    order: 1;                /* ensure text stays on left */
+}
+
+/* Featured words cards layout */
+.featured .cards {
+    display: flex;           /* horizontal layout for multiple cards */
+    flex-wrap: wrap;         /* allow wrapping on smaller screens */
+    gap: 2rem;               /* spacing between cards */
+    justify-content: center; /* center cards in the section */
+}
+
+.featured .card.dict-item {
+    width: 300px;            /* slightly larger cards for featured words */
+    padding: 1.5rem;         /* inner spacing */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15); /* subtle shadow */
+}
+
+/* =========================
+   WORD CARDS LAYOUT
+========================= */
+
+/* All word cards (dictionary & featured) */
+.card.dict-item .card-content {
+    display: flex;            /* horizontal layout */
+    flex-direction: row;      /* side by side: text left, Kulitan right */
+    align-items: center;      /* vertically center content */
+    gap: 1rem;                /* spacing between text and Kulitan */
+    text-align: left;         /* text alignment for left side */
+}
+
+/* Word text section */
+.card.dict-item .word-text {
+    flex: 1;                  /* take remaining horizontal space */
+    order: 1;                 /* always left */
+}
+
+
+/* Mobile: stack vertically on small screens */
+@media (max-width: 600px) {
+    .card.dict-item .card-content {
+        flex-direction: column;  /* stack text above Kulitan */
+        text-align: center;      /* center all content */
+    }
+    .card.dict-item .word-kulitan {
+        order: 2;                /* below text */
+        margin-top: 0.5rem;      /* spacing above Kulitan */
+    }
+    .card.dict-item .word-text {
+        order: 1;                /* text first */
+    }
+}
+
+/* Featured words container adjustments */
+.featured .cards {
+    display: flex;
+    flex-wrap: wrap;             /* allow multiple lines on small screens */
+    gap: 2rem;                   /* spacing between cards */
+    justify-content: center;     /* center cards */
+}
+
+.featured .card.dict-item {
+    width: 300px;                /* slightly larger for emphasis */
+    padding: 1.5rem;             /* inner spacing */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15); /* subtle shadow */
+}
+
+.card.dict-item .card-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    text-align: left;
+}
+
+.card.dict-item .word-text {
+    flex: 1;
+    order: 1;
+}
+
+.card.dict-item .word-kulitan {
+    order: 2;
+    margin-bottom: 0;
+}
+
+.word-kulitan img,
+.word-kulitan svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+.featured .card.dict-item .card-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.featured .word-meaning {
+    display: none;
+    
+}
+
+
+
+

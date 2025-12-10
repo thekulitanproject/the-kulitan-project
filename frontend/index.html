@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kulitan Digital Dictionary</title>
+
+    <!-- Main stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+<!-- =======================
+       HEADER AREA
+======================= -->  
+<header>
+  <div>
+    <!-- Site title loaded from i18n -->
+    <div class="home-title" data-i18n="home-title"></div>
+    <!-- Subtitle loaded from i18n -->
+    <div class="home-sub" data-i18n="home-sub"></div>
+  </div>
+
+  <!-- Navigation links with i18n support -->
+  <nav>
+    <a href="index.html" data-i18n="nav-home"></a>
+    <a href="dictionary.html" data-i18n="nav-dictionary"></a>
+    <a href="about.html" data-i18n="nav-about"></a>
+    <a href="contact.html" data-i18n="nav-contact"></a>
+  </nav>
+
+  <!-- Language toggle button (JS updates its text) -->
+  <div class="enkp">
+    <button id="langToggle" data-i18n="langToggle"></button>
+  </div>
+</header>
+
+<!-- =======================
+       HERO SECTION
+======================= -->
+<section class="hero">
+  <h1 data-i18n="hero-title"></h1>
+  <p data-i18n="hero-sub"></p>
+</section>
+
+<!-- =======================
+       ABOUT SECTION
+======================= -->
+<section class="about">
+  <h2 data-i18n="about-title"></h2>
+  <p data-i18n="about-text"></p>
+</section>
+
+<!-- =======================
+       HOW IT WORKS
+======================= -->
+<section class="how">
+  <h2 data-i18n="how-title"></h2>
+  <p data-i18n="how-sub"></p>
+
+  <div class="steps">
+    <!-- Step 1 -->
+    <div class="step">
+      <img src="SVG/search.svg" alt="Search">
+      <h3 data-i18n="how-see-title"></h3>
+      <p data-i18n="how-see-text"></p>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step">
+      <img src="SVG/speaker.svg" alt="Speaker">
+      <h3 data-i18n="how-read-title"></h3>
+      <p data-i18n="how-read-text"></p>
+    </div>
+    
+    <!-- Step 3 -->
+    <div class="step">
+      <img src="SVG/book.svg" alt="Book">
+      <h3 data-i18n="how-listen-title"></h3>
+      <p data-i18n="how-listen-text"></p>
+    </div>
+    
+    <!-- Step 3 -->
+    <div class="step">
+      <img src="SVG/book.svg" alt="Book">
+      <h3 data-i18n="how-learn-title"></h3>
+      <p data-i18n="how-learn-text"></p>
+    </div>
+  </div>
+</section>
+
+<!-- =======================
+       FEATURED WORDS
+======================= -->
+<!-- Featured words container -->
+<section class="featured">
+  <h2 data-i18n="featured-title"></h2>
+  <div class="cards" id="featuredWordsContainer"></div> <!-- correct ID -->
+</section>
+
+
+
+<!-- =======================
+       COMMUNITY SECTION
+======================= -->
+<section class="community">
+  <h2 data-i18n="section-bpr"></h2>
+  <p data-i18n="section-jkka"></p>
+
+  <!-- Subscribe button with translation and JS action -->
+  <button id="subscribeBtn" class="primary" data-i18n="subscribeBtn"></button>
+</section>
+
+<!-- =======================
+       NIGHT MODE BUTTON
+======================= -->
+<div class="controls">
+  <button id="nightBtn" class="night-btn" data-i18n="nightBtn"></button>
+</div>
+
+<!-- =======================
+       FOOTER
+======================= -->
+<footer class="footer">
+  <p data-i18n="footercreator"></p>
+  <p data-i18n="footernote"></p>
+</footer>
+
+
+
+<script src="js/script.js"></script>
+<script>
+async function loadWords() {
+  try {
+    const response = await fetch("http://localhost:5000/api/words");
+    const words = await response.json();
+    const featuredWordsContainer = document.getElementById("featuredWordsContainer");
+
+    // Shuffle array and take first 3 words
+    const shuffled = words.sort(() => 0.5 - Math.random());
+    const featuredWords = shuffled.slice(0, 3);
+
+    const wordCards = featuredWords.map(word => {
+      return `<a href="${word.page}" class="card dict-item" data-word="${word.romanized} ${word.meaning}">
+        <div class="card-content">
+          <div class="word-text">
+            <p><strong>${word.romanized}</strong></p>
+          </div>
+          <div class="word-kulitan">
+            <img src="${word.kulitan}" alt="Kulitan" class="kulitan-vector">
+          </div>
+        </div>
+      </a>`;
+    }).join('');
+
+
+    if(featuredWordsContainer) {
+      featuredWordsContainer.innerHTML = wordCards;
+    }
+
+  } catch (err) {
+    console.error("Error loading words:", err);
+  }
+}
+
+loadWords();
+
+</script>
+
+</body>
+</html>
