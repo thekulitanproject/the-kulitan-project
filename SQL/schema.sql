@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS words (
+  id SERIAL PRIMARY KEY,
+  kulitan TEXT NOT NULL,
+  romanized TEXT NOT NULL,
+  meaning TEXT NOT NULL
+);

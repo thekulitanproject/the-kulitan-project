@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kulitan Digital Dictionary</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header>
+  <div class="home-title" data-i18n="home-title"></div>
+  <div class="home-sub" data-i18n="home-sub"></div>
+  <nav>
+    <a href="index.html" data-i18n="nav-home"></a>
+    <a href="dictionary.html" data-i18n="nav-dictionary"></a>
+    <a href="about.html" data-i18n="nav-about"></a>
+    <a href="contact.html" data-i18n="nav-contact"></a>
+  </nav>
+</header>
+
+<section class="dictionary">
+  <input id="searchInput" type="text" placeholder="Search..." data-i18n-placeholder="dict_search">
+</section>
+
+<section>
+  <h2 data-i18n="dict-entries">Word List</h2>
+  <div class="cards" id="dictionaryContainer"></div>
+  <div class="pagination">
+    <button id="prevBtn">Previous</button>
+    <span id="pageInfo"></span>
+    <button id="nextBtn">Next</button>
+  </div>
+</section>
+
+<footer class="footer">
+  <p data-i18n="footercreator"></p>
+  <p data-i18n="footernote"></p>
+</footer>
+
+<script type="module">
+import { getWords, searchWords } from "../js/fetchWords.js";
+
+let currentPage = 0;
+const limit = 20;
+
+const container = document.getElementById("dictionaryContainer");
+const searchInput = document.getElementById("searchInput");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+const pageInfo = document.getElementById("pageInfo");
+
+async function loadPage(page = 0) {
+  const offset = page * limit;
+  const query = searchInput.value.trim();
+  let words = [];
+
+  if (query) {
+    words = await searchWords(query);
+  } else {
+    words = await getWords(limit, offset);
+  }
+
+  container.innerHTML = "";
+  words.forEach(word => {
+    const card = document.createElement("div");
+    card.className = "word-card";
+    card.innerHTML = `
+      <div class="kulitan"><img src="${word.kulitan}" alt="${word.romanized}" /></div>
+      <div class="romanized">${word.romanized}</div>
+      <div class="meaning">${word.meaning}</div>
+    `;
+    container.appendChild(card);
+  });
+
+  pageInfo.textContent = `Page ${currentPage + 1}`;
+}
+
+// Event listeners
+searchInput.addEventListener("input", () => {
+  currentPage = 0;
+  loadPage(currentPage);
+});
+
+prevBtn.addEventListener("click", () => {
+  if (currentPage > 0) {
+    currentPage--;
+    loadPage(currentPage);
+  }
+});
+
+nextBtn.addEventListener("click", () => {
+  currentPage++;
+  loadPage(currentPage);
+});
+
+// Initial load
+loadPage(currentPage);
+</script>
+
+</body>
+</html>

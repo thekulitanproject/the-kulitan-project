@@ -88,7 +88,8 @@ async function fetchWords() {
   } catch {}
 
   try {
-    const local = await fetch("/words.json");
+    const words = await fetch("/api/words").then(r => r.json());
+
     return await local.json();
   } catch {
     return [];

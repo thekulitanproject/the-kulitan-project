@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kulitan Digital Dictionary</title>
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header>
+  <div class="site-branding">
+    <h1 class="home-title" data-i18n="home-title"></h1>
+    <p class="home-sub" data-i18n="home-sub"></p>
+  </div>
+
+  <nav>
+    <a href="index.html" data-i18n="nav-home"></a>
+    <a href="dictionary.html" data-i18n="nav-dictionary"></a>
+    <a href="about.html" data-i18n="nav-about"></a>
+    <a href="contact.html" data-i18n="nav-contact"></a>
+  </nav>
+
+  <div class="enkp">
+    <button id="langToggle" data-i18n="langToggle"></button>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <h1 data-i18n="hero-title"></h1>
+  <p data-i18n="hero-sub"></p>
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section class="about">
+  <h2 data-i18n="about-title"></h2>
+  <p data-i18n="about-text"></p>
+</section>
+
+<!-- ===================== HOW IT WORKS ===================== -->
+<section class="how">
+  <h2 data-i18n="how-title"></h2>
+  <p data-i18n="how-sub"></p>
+
+  <div class="steps">
+    <div class="step">
+      <img src="SVG/search.svg" alt="Search Icon">
+      <h3 data-i18n="how-see-title"></h3>
+      <p data-i18n="how-see-text"></p>
+    </div>
+
+    <div class="step">
+      <img src="SVG/speaker.svg" alt="Speaker Icon">
+      <h3 data-i18n="how-read-title"></h3>
+      <p data-i18n="how-read-text"></p>
+    </div>
+    
+    <div class="step">
+      <img src="SVG/book.svg" alt="Book Icon">
+      <h3 data-i18n="how-listen-title"></h3>
+      <p data-i18n="how-listen-text"></p>
+    </div>
+    
+    <div class="step">
+      <img src="SVG/book.svg" alt="Book Icon">
+      <h3 data-i18n="how-learn-title"></h3>
+      <p data-i18n="how-learn-text"></p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FEATURED WORDS ===================== -->
+<section class="featured">
+  <h2 data-i18n="featured-title"></h2>
+  <div class="cards" id="featuredWordsContainer"></div>
+</section>
+
+<!-- ===================== COMMUNITY ===================== -->
+<section class="community">
+  <h2 data-i18n="section-bpr"></h2>
+  <p data-i18n="section-jkka"></p>
+  <button id="subscribeBtn" class="primary" data-i18n="subscribeBtn"></button>
+</section>
+
+<!-- ===================== NIGHT MODE ===================== -->
+<div class="controls">
+  <button id="nightBtn" class="night-btn" data-i18n="nightBtn"></button>
+</div>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <p data-i18n="footercreator"></p>
+  <p data-i18n="footernote"></p>
+</footer>
+
+<!-- ===================== SCRIPTS ===================== -->
+<script src="js/script.js"></script>
+<script>
+  async function loadFeaturedWords() {
+    try {
+      const response = await fetch("http://localhost:5000/api/words");
+      const words = await response.json();
+      const container = document.getElementById("featuredWordsContainer");
+
+      if (!container) return;
+
+      // Shuffle and pick first 3 words
+      const featured = words.sort(() => 0.5 - Math.random()).slice(0, 3);
+
+      container.innerHTML = featured.map(word => `
+        <a href="${word.page || '#'}" class="card dict-item" data-word="${word.romanized} ${word.meaning}">
+          <div class="card-content">
+            <div class="word-text">
+              <p><strong>${word.romanized}</strong></p>
+            </div>
+            <div class="word-kulitan">
+              <img src="${word.kulitan}" alt="Kulitan of ${word.romanized}" class="kulitan-vector">
+            </div>
+          </div>
+        </a>
+      `).join('');
+
+    } catch (err) {
+      console.error("Error loading featured words:", err);
+    }
+  }
+
+  window.addEventListener("DOMContentLoaded", loadFeaturedWords);
+</script>
+
+</body>
+</html>

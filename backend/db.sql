@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS words (
   audio TEXT
 );
 
+
 INSERT INTO words (kulitan, romanized, meaning) VALUES
 ('𐔰𐔭𐔧', 'Pusu', 'Heart'),
 ('𐔮𐔰𐔭', 'Alaya', 'Sun'),
