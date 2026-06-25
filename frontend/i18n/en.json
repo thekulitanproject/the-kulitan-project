@@ -1,15 +1,16 @@
 {
-    "home-title": "Kulitan Digital Dictionary",
-    "home-sub": "Kapampángan script learning hub",
+    "home-title": "The Kulitan Project",
+    "home-sub": "Kulitan Digital Dictionary",
     "nav-home": "Home",
     "nav-dictionary": "Dictionary",
     "nav-about": "About",
+    "nav-references": "References",
     "nav-contact": "Contact",
     "langToggle": "EN / KP",
     "hero-title": "Discover the Beauty of Kulitan",
     "hero-sub": "The Living Script of the Kapampángan People",
     "about-title": "Preserving Our Script, Empowering New Learners",
-    "about-text": "The Kulitan Digital Dictionary is a cultural preservation initiative that brings the ancient Kapampángan script to the digital age. Each word includes its pronunciation, meaning, and written form — bridging heritage and modern technology to guide both native speakers and newcomers.",
+    "about-text": "The Kulitan Project is a cultural preservation initiative that brings the ancient Kapampángan script to the digital age. Each word includes its pronunciation, meaning, and written form — bridging heritage and modern technology to guide both native speakers and newcomers.",
     "step1-title": "Search Root Words",
     "step1-text": "See it in Kulitan script with pronunciation guide.",
     "step2-title": "Hear Pronunciation",
@@ -17,12 +18,13 @@
     "step3-title": "Learn Meanings",
     "step3-text": "View definitions and example sentences.",
     "featured-title": "Featured Words",
+    "featured-sub": "You know this word?",
     "section-bpr": "Be Part of the Revival",
     "section-jkka": "Join us in keeping Kulitan alive — for the next generation",
     "subscribeBtn": "Get Updates",
-    "nightBtn": "NIght Mode",
-    "footercreator": "Created by Angelo Maglalang. A Kulitan Preservation Project",
-    "footernote": "'Ibalik ya ing Amanung Sisuan, at Itaguyod ya ing Kulitan.'",
+    "nightBtn": "Night Mode",
+    "footercreator": "Created by Angelo Torres Máglalang. A Kulitan Preservation Project",
+    "footernote": "'Maulaga ya ing kekatamung Amanung Sisuan at dapat yang ituru ing Kulitan.'",
     "how-title": "See, Read, Hear, and Understand Kulitan.",
     "how-sub": "Explore Kulitan through script, sound, and meaning.",
     "how-see-title": "See",
@@ -61,9 +63,9 @@
     "dict-sub": "Browse Kapampangan words with Kulitan script and illustrations.",
     "dict-search": "Search...",
     "dict-entries": "Word List",
-    "dict-search-placeholder": "Search..."
+    "dict-search-placeholder": "Search...",
 
-
+    "back-link": "← Back to Dictionary"
 
 
     

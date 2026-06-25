@@ -1,33 +1,48 @@
-# Node modules
+# Node
 node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
 # Environment variables
 .env
 .env.local
-.env.*.local
+.env.development
+.env.test
+.env.production
+
+# Database
+*.sql
+*.sqlite
+*.db
+
+# Build output
+dist/
+build/
+
+# Frontend tooling
+.vite/
+.cache/
 
 # Logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+logs/
+*.log
 
 # OS files
 .DS_Store
 Thumbs.db
 
-# Build/output folders
-dist/
-build/
-out/
-
-# VSCode settings
+# Editor configs
 .vscode/
+.idea/
+
+# Coverage
+coverage/
 
 # Temporary files
-*.tmp
-*.temp
-*.log
+tmp/
+temp/
 
 # Optional: lock files if you don’t want them tracked
-# package-lock.json
-# yarn.lock
+package-lock.json
+yarn.lock

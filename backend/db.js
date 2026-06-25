@@ -1,8 +1,9 @@
+// only handles database connection
+
 import pkg from "pg";
 import dotenv from "dotenv";
 
 dotenv.config();
-
 const { Pool } = pkg;
 
 const pool = new Pool({
@@ -10,16 +11,17 @@ const pool = new Pool({
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
   database: process.env.DB_NAME,
-  port: process.env.DB_PORT,
-  ssl: process.env.DB_SSL === "true" ? { rejectUnauthorized: false } : false
+  port: Number(process.env.DB_PORT),
+  ssl: process.env.DB_SSL === "true"
+    ? { rejectUnauthorized: false }
+    : false
 });
 
 // one time connection test
 pool
-  .connect()
-  .then(client => {
+  .query("SELECT 1")
+  .then(() => {
     console.log("Database connected");
-    client.release();
   })
   .catch(err => {
     console.error("Database connection error:", err);

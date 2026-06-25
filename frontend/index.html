@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Kulitan Project</title>
+  <link rel="icon" href="/SVG/KulitanFavicon.svg">
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header>
+  <a class="home-brand" href="index.html">
+    <img src="/SVG/KulitanFavicon.svg" alt="Kulitan Logo" class="home-logo" />
+
+    <div class="home-text">
+      <div class="home-title" data-i18n="home-title"></div>
+      <div class="home-sub" data-i18n="home-sub"></div>
+    </div>
+  </a>
+
+  <nav>
+    <a href="index.html" data-i18n="nav-home"></a>
+    <a href="dictionary.html" data-i18n="nav-dictionary"></a>
+    <a href="about.html" data-i18n="nav-about"></a>
+    <a href="references.html" data-i18n="nav-references"></a>
+    <a href="contact.html" data-i18n="nav-contact"></a>
+  </nav>
+
+  <div class="enkp">
+    <button id="langToggle" data-i18n="langToggle"></button>
+  </div>
+</header>
+
+<section class="hero">
+  <h1 data-i18n="hero-title"></h1>
+  <p data-i18n="hero-sub"></p>
+</section>
+
+<section class="about">
+  <h2 data-i18n="about-title"></h2>
+  <p data-i18n="about-text" class="about-text"></p>
+</section>
+
+<section class="how">
+  <h2 data-i18n="how-title"></h2>
+  <p data-i18n="how-sub"></p>
+
+  <div class="steps">
+    <div class="step">
+      <img src="SVG/lumawe.svg" class="step-kulitan">
+      <h3 data-i18n="how-see-title"></h3>
+      <p data-i18n="how-see-text"></p>
+    </div>
+
+    <div class="step">
+      <img src="SVG/mamasa.svg" class="step-kulitan">
+      <h3 data-i18n="how-read-title"></h3>
+      <p data-i18n="how-read-text"></p>
+    </div>
+
+    <div class="step">
+      <img src="SVG/makidamdam.svg" class="step-kulitan">
+      <h3 data-i18n="how-listen-title"></h3>
+      <p data-i18n="how-listen-text"></p>
+    </div>
+
+    <div class="step">
+      <img src="SVG/mabiasa.svg" class="step-kulitan">
+      <h3 data-i18n="how-learn-title"></h3>
+      <p data-i18n="how-learn-text"></p>
+    </div>
+  </div>
+</section>
+
+<section class="featured">
+  <h2 data-i18n="featured-title"></h2>
+  <p data-i18n="featured-sub"></p>
+  <div class="cards" id="featuredWordsContainer"></div>
+</section>
+
+<section class="community">
+  <h2 data-i18n="section-bpr"></h2>
+  <p data-i18n="section-jkka"></p>
+<!--  <button id="subscribeBtn" class="primary" data-i18n="subscribeBtn"></button> -->
+</section>
+
+<div class="controls">
+  <button id="nightBtn" class="night-btn" data-i18n="nightBtn"></button>
+</div>
+
+<footer class="footer">
+  <p data-i18n="footercreator"></p>
+  <p data-i18n="footernote"></p>
+</footer>
+
+<script type="module">
+import { loadFeaturedWords } from "./js/dictionary/dictionaryFeatured.js";
+import { initLanguage } from "./js/i18n/language.js";
+import { initNightMode } from "./js/theme/nightMode.js";
+
+window.addEventListener("DOMContentLoaded", () => {
+  initLanguage();
+  initNightMode();
+  loadFeaturedWords();
+});
+</script>
+
+</body>
+</html>
+
+
+

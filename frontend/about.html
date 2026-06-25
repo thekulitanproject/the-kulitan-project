@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Kulitan Project</title>
+  <link rel="icon" href="/SVG/KulitanFavicon.svg">
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header>
+  <a class="home-brand" href="index.html">
+    <img src="/SVG/KulitanFavicon.svg" alt="Kulitan Logo" class="home-logo" />
+
+    <div class="home-text">
+      <div class="home-title" data-i18n="home-title"></div>
+      <div class="home-sub" data-i18n="home-sub"></div>
+    </div>
+  </a>
+
+  <nav>
+    <a href="index.html" data-i18n="nav-home"></a>
+    <a href="dictionary.html" data-i18n="nav-dictionary"></a>
+    <a href="about.html" data-i18n="nav-about"></a>
+    <a href="references.html" data-i18n="nav-references"></a>
+    <a href="contact.html" data-i18n="nav-contact"></a>
+  </nav>
+
+  <div class="enkp">
+    <button id="langToggle" data-i18n="langToggle"></button>
+  </div>
+</header>
+
+<section class="hero fade-in">
+  <h1 data-i18n="about-header"></h1>
+  <p data-i18n="about-intro"></p>
+</section>
+
+<section class="mission-fade-in">
+  <h2 data-i18n="about-mission-header"></h2>
+  <p data-i18n="about-mission-text"></p>
+</section>
+
+<section class="story-fade-in">
+  <h2 data-i18n="about-story-header"></h2>
+  <p data-i18n="about-story-text"></p>
+</section>
+
+<section class="importance-fade-in">
+  <h2 data-i18n="about-importance-header"></h2>
+  <p data-i18n="about-importance-text"></p>
+</section>
+
+<div class="controls">
+  <button id="nightBtn" class="night-btn" data-i18n="nightBtn"></button>
+</div>
+
+<footer class="footer">
+  <p data-i18n="footercreator"></p>
+  <p data-i18n="footernote"></p>
+</footer>
+
+<script type="module">
+import { initLanguage } from "./js/i18n/language.js";
+import { initNightMode } from "./js/theme/nightMode.js";
+
+window.addEventListener("DOMContentLoaded", () => {
+  initLanguage();
+  initNightMode();
+});
+</script>
+
+</body>
+</html>
+
+
+

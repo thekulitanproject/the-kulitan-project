@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Kulitan Project</title>
+  <link rel="icon" href="/SVG/KulitanFavicon.svg">
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header>
+  <div class="home-brand">
+    <img src="/SVG/KulitanFavicon.svg" alt="Kulitan Logo" class="home-logo" />
+    <div class="home-text">
+      <div class="home-title" data-i18n="home-title"></div>
+      <div class="home-sub" data-i18n="home-sub"></div>
+    </div>
+  </div>
+
+  <nav>
+    <a href="index.html" data-i18n="nav-home"></a>
+    <a href="dictionary.html" data-i18n="nav-dictionary"></a>
+    <a href="about.html" data-i18n="nav-about"></a>
+    <a href="references.html" data-i18n="nav-references"></a>
+    <a href="contact.html" data-i18n="nav-contact"></a>
+  </nav>
+
+  <div class="enkp">
+    <button id="langToggle" data-i18n="langToggle"></button>
+  </div>
+</header>
+
+<main class="word-page">
+  <a href="dictionary.html" id="backToDictionary" class="back-link" data-i18n="back-link"></a>
+  <!-- KULITAN HERO -->
+  <section class="kulitan-hero">
+    <div id="kulitanContainer" class="word-kulitan"></div>
+  </section>
+
+  <!-- WORD CONTENT -->
+  <section class="information">
+
+    <div class="word-header">
+      <h1 id="romanized"></h1>
+      <button id="playAudio">▶</button>
+      <audio id="audio"></audio>
+    </div>
+
+    <div id="textPronunciation" class="meta-item"></div>
+
+    <p id="speech" class="word-speech"></p>
+    <p id="meaning" class="word-meaning"></p>
+
+    <section id="examples" class="examples"></section>
+
+    <!-- COLLAPSIBLE META -->
+    <div class="collapsible">
+      <div class="collapsible-toggle">More information</div>
+
+      <div class="collapsible-content">
+        <div class="word-meta">
+          <div class="meta-items">
+            <div id="meaningList" class="meta-item"></div>
+            <div id="rootWord" class="meta-item"></div>
+            <div id="derivedForms" class="meta-item"></div>
+            <div id="synonyms" class="meta-item"></div>
+            <div id="antonyms" class="meta-item"></div>
+            <div id="aspectFocus" class="meta-item"></div>
+            <div id="dialectRegion" class="meta-item"></div>
+            <div id="formalityLevel" class="meta-item"></div>
+            <div id="etymology" class="meta-item"></div>
+            <div id="usageNotes" class="meta-item"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+<!-- NIGHT MODE -->
+<div class="controls">
+  <button id="nightBtn" class="night-btn" data-i18n="nightBtn"></button>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p data-i18n="footercreator"></p>
+  <p data-i18n="footernote"></p>
+</footer>
+
+<!-- SCRIPTS -->
+<script type="module" src="./js/pages/wordPage.js"></script>
+
+
+</body>
+</html>

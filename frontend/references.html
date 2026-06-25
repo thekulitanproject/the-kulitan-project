@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Kulitan Project</title>
+  <link rel="icon" href="/SVG/KulitanFavicon.svg">
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header>
+  <a class="home-brand" href="index.html">
+    <img src="/SVG/KulitanFavicon.svg" alt="Kulitan Logo" class="home-logo" />
+
+    <div class="home-text">
+      <div class="home-title" data-i18n="home-title"></div>
+      <div class="home-sub" data-i18n="home-sub"></div>
+    </div>
+  </a>
+
+  <nav>
+    <a href="index.html" data-i18n="nav-home"></a>
+    <a href="dictionary.html" data-i18n="nav-dictionary"></a>
+    <a href="about.html" data-i18n="nav-about"></a>
+    <a href="references.html" data-i18n="nav-references"></a>
+    <a href="contact.html" data-i18n="nav-contact"></a>
+  </nav>
+
+  <div class="enkp">
+    <button id="langToggle" data-i18n="langToggle"></button>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>References</h1>
+  <p>
+    The Kulitan Project is built upon historical records, linguistic studies,
+    archival materials, community knowledge, and modern research relating to
+    the Kapampangan language, culture, and Kulitan writing system.
+  </p>
+</section>
+
+<section class="references-page">
+
+  <h2>References</h2>
+
+  <ul class="reference-list">
+
+    <h3>
+    Bergaño, D. (1732). <em>Vocabulario de la lengua Pampanga</em>.
+    <a href="https://archive.org/details/BerganoVocabulario" target="_blank" rel="noopener noreferrer">[View Source]</a>
+    </h3>
+
+    <h3>
+    Bergaño, D. (1736). <em>Arte de la lengua Pampanga</em>.
+    <a href="https://digilib.ust.edu.ph/digital/collection/section5/id/6682" target="_blank" rel="noopener noreferrer">[View Source]</a>
+    </h3>
+
+    <h3>
+    Pangilinan, M. R. M. (n.d.). <em>Siuálâ Ding Meángûbié</em>.
+    <a href="https://siuala.com/" target="_blank" rel="noopener noreferrer">[View Source]</a>
+    </h3>
+
+    <h3>
+    Pangilinan, M. R. M. (2012). <em>Kulitan: The Indigenous Kapampangan Script</em>. 
+    <a href="https://siuala.com/kulitan-the-indigenous-kapampangan-script/" target="_blank" rel="noopener noreferrer">[View Source]</a>
+    </h3>
+
+    <h3> Sínúpan Singsing: Center for Kapampángan Cultural Heritage. (n.d.). <em>Lectures and educational resources on Kapampangan language, culture, and Kulitan.</em> 
+    <a href="https://www.facebook.com/sinupan.singsing.lectures" target="_blank" rel="noopener noreferrer">[View Source]</a> 
+    </h3>
+
+  </ul>
+
+</section>
+
+
+<section class="about">
+  <h2>Academic Integrity</h2>
+  <p class="about-text">
+    The Kulitan Project aims to honor and preserve the contributions of 
+    generations of Kapampangan scholars, writers, historians, language advocates, 
+    and community members. 
+    This project does not claim ownership of the language, 
+    script, or cultural knowledge it documents and instead aims to contribute to 
+    their preservation, accessibility, and continued use.
+  </p>
+</section>
+
+<div class="controls">
+  <button id="nightBtn" class="night-btn" data-i18n="nightBtn"></button>
+</div>
+
+<footer class="footer">
+  <p data-i18n="footercreator"></p>
+  <p data-i18n="footernote"></p>
+</footer>
+
+<script type="module">
+import { initLanguage } from "./js/i18n/language.js";
+import { initNightMode } from "./js/theme/nightMode.js";
+
+window.addEventListener("DOMContentLoaded", () => {
+  initLanguage();
+  initNightMode();
+});
+</script>
+
+</body>
+</html>
